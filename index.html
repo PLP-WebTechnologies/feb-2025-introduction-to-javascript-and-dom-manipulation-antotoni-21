@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive DOM Example</title>
+    <style>
+        /* Basic styling for the page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        main {
+            padding: 2em;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #dynamic-style-text {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        #element-container {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="main-heading">Anthony Kiptoo</h1>
+    </header>
+
+    <main>
+        <section>
+            <p id="dynamic-text">I come from Nairobi.</p>
+            <button id="change-text-btn">Change Text</button>
+        </section>
+
+        <section>
+            <p id="dynamic-style-text">This text will change style.</p>
+            <button id="change-style-btn">Change Style</button>
+        </section>
+
+        <section>
+            <button id="add-element-btn">Add New Element</button>
+            <button id="remove-element-btn">Remove Last Element</button>
+            <div id="element-container">
+                <!-- New elements will be added here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My Website</p>
+    </footer>
+
+    <script>
+        // Changing the text content dynamically
+        const changeTextBtn = document.getElementById('change-text-btn');
+        const dynamicText = document.getElementById('dynamic-text');
+
+        changeTextBtn.addEventListener('click', function() {
+            dynamicText.textContent = "I come from Mombasa."; // Changes the text to "I come from Mombasa"
+        });
+
+        // Modifying CSS styles via JavaScript
+        const changeStyleBtn = document.getElementById('change-style-btn');
+        const dynamicStyleText = document.getElementById('dynamic-style-text');
+
+        changeStyleBtn.addEventListener('click', function() {
+            dynamicStyleText.style.color = 'blue';
+            dynamicStyleText.style.fontSize = '20px';
+            dynamicStyleText.style.fontWeight = 'bold';
+        });
+
+        // Adding and removing elements dynamically
+        const addElementBtn = document.getElementById('add-element-btn');
+        const removeElementBtn = document.getElementById('remove-element-btn');
+        const elementContainer = document.getElementById('element-container');
+
+        addElementBtn.addEventListener('click', function() {
+            const newElement = document.createElement('p');
+            newElement.textContent = "Pablo Escobar"; // New element with the text "Pablo Escobar"
+            elementContainer.appendChild(newElement);
+        });
+
+        removeElementBtn.addEventListener('click', function() {
+            const lastElement = elementContainer.lastElementChild;
+            if (lastElement) {
+                elementContainer.removeChild(lastElement);
+            }
+        });
+    </script>
+</body>
+</html>
